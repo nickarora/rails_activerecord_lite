@@ -2,9 +2,27 @@ require 'railslite/railslite_controllerbase'
 
 describe RailsLite::ControllerBase do
   before(:all) do
+    class Owner
+      attr_reader :fname, :lname
+
+      def initialize
+        @fname = 'Bob'
+        @lname = 'Barker'
+      end
+    end
+
+    class Cat
+      attr_reader :name, :owner
+
+      def initialize
+        @name = 'GIZMO'
+        @owner = Owner.new
+      end
+    end
+
     class CatsController < RailsLite::ControllerBase
       def index
-        @cats = ["GIZMO"]
+        @cats = [Cat.new]
       end
     end
   end
