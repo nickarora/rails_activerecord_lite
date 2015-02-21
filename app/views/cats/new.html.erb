@@ -1,0 +1,21 @@
+<form action="/cats" method="POST">
+	
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  
+  
+  <label>Name
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  </label>
+
+  <label>Owner
+  	<select name="cat[owner_id]">
+  		<% @owners.each do |owner| %>
+  			<option value="<%= owner.id %>"><%= owner.fname %></option>
+  		<% end %>
+		</select>
+  </label>
+
+  <input type="submit">
+</form>
+
+<a href="/cats">Back to Cats</a>

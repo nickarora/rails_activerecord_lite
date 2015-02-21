@@ -1,0 +1,13 @@
+<h1>ALL THE CATS</h1>
+<% @cats.each do | cat|  %>
+	<ul>
+		<li>
+			<%= cat.name %><br>
+			<% if cat.owner %>
+				Owned by <%= cat.owner.fname %> <%= cat.owner.lname %>
+			<% end %>
+		</li>
+	</ul>
+<% end %>
+
+<a href="/cats/new">New cat!</a>
